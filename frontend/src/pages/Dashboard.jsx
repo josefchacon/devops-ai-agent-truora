@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
 import { Activity, AlertTriangle, CheckCircle, Clock } from 'lucide-react'
 import { getLogs, getReports } from '../services/api'
-import axios from 'axios'
+import api from '../services/api'
 
 const Dashboard = () => {
   const [metrics, setMetrics] = useState(null)
@@ -16,7 +16,7 @@ const Dashboard = () => {
   const loadDashboardData = async () => {
     try {
       const [metricsRes, logsRes] = await Promise.all([
-        axios.get('/api/reports/metrics'),
+        api.get('/reports/metrics'),
         getLogs({ limit: 5 })
       ])
       
