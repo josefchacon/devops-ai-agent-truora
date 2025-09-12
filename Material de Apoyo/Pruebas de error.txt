@@ -1,0 +1,47 @@
+🔴 Error Crítico de Base de Datos:
+
+Service Name: payment-service
+Error Level: FATAL
+Error Message: Database connection pool exhausted
+Stack Trace: com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool
+    at com.payment.database.ConnectionManager.getConnection(ConnectionManager.java:67)
+    at com.payment.service.PaymentProcessor.processPayment(PaymentProcessor.java:145)
+Raw Log: 2024-01-15 14:30:25 FATAL [payment-service] Database connection pool exhausted - unable to process payments. Active connections: 50/50
+
+🟠 Error de Memoria:
+
+Service Name: user-service
+Error Level: ERROR
+Error Message: OutOfMemoryError: Java heap space
+Stack Trace: java.lang.OutOfMemoryError: Java heap space
+    at java.util.Arrays.copyOf(Arrays.java:3332)
+    at com.user.service.UserCache.loadUsers(UserCache.java:89)
+Raw Log: 2024-01-15 15:45:12 ERROR [user-service] OutOfMemoryError during user cache loading. Heap usage: 98%
+
+🟡 Error de Red:
+
+Service Name: notification-service
+Error Level: ERROR
+Error Message: Connection timeout to external API
+Stack Trace: java.net.SocketTimeoutException: Read timed out
+    at java.net.SocketInputStream.socketRead0(Native Method)
+    at com.notification.client.EmailClient.sendEmail(EmailClient.java:234)
+Raw Log: 2024-01-15 16:20:33 ERROR [notification-service] Connection timeout to email API after 30000ms. Retries: 3/3 failed
+
+🔵 Error de Autenticación:
+
+Service Name: auth-service
+Error Level: WARN
+Error Message: Invalid JWT token signature
+Raw Log: 2024-01-15 17:10:15 WARN [auth-service] JWT signature verification failed for user session
+
+
+🟣 Error de Configuración:
+
+Service Name: config-service
+Error Level: ERROR
+Error Message: Missing required environment variable DATABASE_URL
+Raw Log: 2024-01-15 18:05:42 ERROR [config-service] Application startup failed: DATABASE_URL not found
+
+
+
