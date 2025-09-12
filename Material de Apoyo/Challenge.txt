@@ -1,0 +1,46 @@
+Challenge Truora PT1 - AI First
+Construir un Agente de IA que potencie el trabajo de alguien en tu misma posición. El agente debe automatizar tareas repetitivas, acelerar decisiones o brindar inteligencia contextual útil para ese cargo. Queremos ver cómo piensas y aplicas IA para hacer el trabajo más eficiente y más inteligente.
+Ejemplos:
+● Si aplicas a Growth, tu agente podría generar insights automáticos de campañas y sugerir nuevos experimentos.
+● Si aplicas a Soporte, podría clasificar tickets y sugerir respuestas automáticas.
+● Si aplicas a Producto, podría agrupar feedback y sugerir mejoras priorizadas.
+Requisitos Principales
+1. Entendimiento del Rol
+a. Describe brevemente las tareas clave que enfrenta este rol a diario.
+b. Define qué problema o tarea específica va a resolver tu agente.
+2. Construcción del Agente Tu solución debe incluir:
+a. Entrada de información: puede venir de archivos, formularios, API, etc.
+b. Procesamiento con IA: usa OpenAI, Claude, Gemini o el modelo que prefieras para resolver una parte del flujo (ej. análisis, clasificación, resumen, generación).
+c. Salida útil: el resultado debe ser algo que una persona en este rol pueda usar directamente.
+3. Infraestructura
+a. Base de datos: Usa Supabase (u otra base) para guardar entradas y salidas del flujo.
+b. Orquestación: Usa n8n, make, zapier, relevance o cualquier otro para crear el proceso.
+c. Interfaz final: puede ser una mini web app (Lovable, React, etc.), un bot de Telegram, una integración en Slack o lo que te imagines.
+4. Documentación / Demostración Demostración Breve: Graba un video corto de máximo 5 minutos en el que muestres:
+a. La configuración del agente
+b. Cómo se integró el paso de IA (el prompting o llamadas a la API).
+c. El resultado final funcionando.
+Notas: Escribe un breve documento explicando:
+a. Tu proceso de pensamiento.
+b. Los prompts que diseñaste para la IA (y por qué).
+c. Cómo utilizaste IA para ayudarte durante la implementación (ej. ChatGPT, Copilot).
+d. Los retos que enfrentaste y cómo los superaste.
+Criterios de Evaluación
+1. Uso de la IA
+a. ¿Cómo de creativa y efectiva fue la implementación de la IA para resolver el problema?
+b. ¿Se nota una comprensión del prompting?
+2. Resolución de Problemas y Autonomía
+a. ¿Cómo gestionaste los obstáculos?
+b. ¿Mostraste habilidad para encontrar la documentación o replantear el enfoque cuando fue necesario?
+c. ¿Hay algo que no sepas hacer?
+3. Claridad en la Comunicación
+a. ¿La demo y la documentación son claros y concisos?
+b. ¿Otra persona podría retomar el proyecto y entender su funcionamiento?
+Recursos para aprender
+Si no estás familiarizado con alguna de las herramientas, puedes aprender durante el reto. Estas son buenas fuentes para apoyarte:
+● https://lab10.ai – Clases prácticas en español sobre n8n, prompting, Supabase y otros temas relacionados.
+● Prompting Guide – Guía práctica sobre cómo escribir buenos prompts.
+● OpenAI Academy – Curso gratuito sobre cómo usar los modelos de OpenAI.
+● Anthropic Learn – Ejemplos y guías para construir con Claude.
+● n8n Docs – Documentación oficial de n8n.
+Puedes usar también cualquier video o recurso adicional que te ayude a resolver el reto.
