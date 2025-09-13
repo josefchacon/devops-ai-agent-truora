@@ -64,9 +64,11 @@ const LogUpload = () => {
                 onChange={(e) => setFormData({...formData, error_level: e.target.value})}
                 className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
               >
-                <option value="ERROR">ERROR</option>
-                <option value="WARN">WARN</option>
-                <option value="FATAL">FATAL</option>
+                <option value="FATAL">FATAL (Severidad 9-10)</option>
+                <option value="ERROR">ERROR (Severidad 7-8)</option>
+                <option value="WARN">WARN (Severidad 4-6)</option>
+                <option value="INFO">INFO (Severidad 2-3)</option>
+                <option value="DEBUG">DEBUG (Severidad 0-1)</option>
               </select>
             </div>
           </div>

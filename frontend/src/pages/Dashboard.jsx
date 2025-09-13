@@ -149,7 +149,10 @@ const Dashboard = () => {
                         <span className={`px-2 py-1 text-xs rounded-full ${
                           log.error_level === 'FATAL' ? 'bg-red-100 text-red-800' :
                           log.error_level === 'ERROR' ? 'bg-orange-100 text-orange-800' :
-                          'bg-yellow-100 text-yellow-800'
+                          log.error_level === 'WARN' ? 'bg-yellow-100 text-yellow-800' :
+                          log.error_level === 'INFO' ? 'bg-blue-100 text-blue-800' :
+                          log.error_level === 'DEBUG' ? 'bg-gray-100 text-gray-800' :
+                          'bg-gray-100 text-gray-800'
                         }`}>
                           {log.error_level}
                         </span>
