@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const supabase = require('../config/supabase');
 const aiService = require('../services/aiService');
+const telegramService = require('../services/telegramService');
 
 // Subir logs de errores
 router.post('/', async (req, res) => {
@@ -45,6 +46,9 @@ router.post('/', async (req, res) => {
       .single();
 
     if (classError) throw classError;
+
+    // Enviar notificación de Telegram para errores críticos
+    await telegramService.sendNotification(logData, aiAnalysis);
 
     res.json({
       log: logData,
