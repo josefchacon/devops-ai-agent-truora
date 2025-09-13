@@ -43,5 +43,12 @@ Error Level: ERROR
 Error Message: Missing required environment variable DATABASE_URL
 Raw Log: 2024-01-15 18:05:42 ERROR [config-service] Application startup failed: DATABASE_URL not found
 
+Service Name: payment-gateway
+Error Level: FATAL
+Error Message: OutOfMemoryError: Java heap space exceeded
+Stack Trace: java.lang.OutOfMemoryError: Java heap space at com.payment.processor.PaymentHandler.processPayment(PaymentHandler.java:145)
+Raw Log: 2024-01-15 14:30:25 FATAL [payment-gateway] OutOfMemoryError: Java heap space exceeded during high-volume transaction processing
+
+
 
 
