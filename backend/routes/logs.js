@@ -6,6 +6,9 @@ const telegramService = require('../services/telegramService');
 
 // Subir logs de errores
 router.post('/', async (req, res) => {
+  console.log('📥 POST /logs endpoint called');
+  console.log('📋 Request body:', req.body);
+  
   try {
     const { service_name, error_level, error_message, stack_trace, raw_log } = req.body;
 
@@ -25,11 +28,15 @@ router.post('/', async (req, res) => {
       .single();
 
     if (logError) throw logError;
+    
+    console.log('✅ Log saved to database:', logData.id);
 
     // Analizar con IA
+    console.log('🤖 Starting AI analysis...');
     const startTime = Date.now();
     const aiAnalysis = await aiService.analyzeErrorLog(logData);
     const processingTime = Date.now() - startTime;
+    console.log('✅ AI analysis completed:', aiAnalysis);
 
     // Guardar clasificación de IA
     const { data: classificationData, error: classError } = await supabase
@@ -48,7 +55,10 @@ router.post('/', async (req, res) => {
     if (classError) throw classError;
 
     // Enviar notificación de Telegram para errores críticos
+    console.log(`🔍 Checking Telegram notification - Severity: ${aiAnalysis.severity_score}/10`);
+    console.log('📱 Calling Telegram service...');
     await telegramService.sendNotification(logData, aiAnalysis);
+    console.log('📱 Telegram service call completed');
 
     res.json({
       log: logData,
@@ -56,7 +66,8 @@ router.post('/', async (req, res) => {
       ai_analysis: aiAnalysis
     });
   } catch (error) {
-    console.error('Error processing log:', error);
+    console.error('❌ Error processing log:', error);
+    console.error('❌ Stack trace:', error.stack);
     res.status(500).json({ error: 'Error processing log' });
   }
 });

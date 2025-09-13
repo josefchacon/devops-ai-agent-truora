@@ -1,6 +1,12 @@
 import axios from 'axios'
 
-const API_BASE_URL = 'https://devops-ai-agent-truora-production.up.railway.app/api'
+// Detectar entorno automáticamente
+const API_BASE_URL = import.meta.env.VITE_API_URL || 
+  (window.location.hostname === 'localhost' 
+    ? 'http://localhost:3001/api' 
+    : 'https://devops-ai-agent-truora-production.up.railway.app/api')
+
+console.log('🔗 API URL:', API_BASE_URL)
 
 const api = axios.create({
   baseURL: API_BASE_URL,

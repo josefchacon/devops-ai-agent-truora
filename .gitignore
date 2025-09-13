@@ -4,6 +4,10 @@
 .env.production
 .env.development
 
+# Frontend environment files
+frontend/.env.local
+frontend/.env.development
+
 # Dependencies
 node_modules/
 */node_modules/

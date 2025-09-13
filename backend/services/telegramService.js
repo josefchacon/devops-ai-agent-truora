@@ -8,16 +8,23 @@ class TelegramService {
   }
 
   async sendNotification(logData, aiAnalysis) {
+    console.log('📱 Telegram sendNotification called');
+    
     if (!this.botToken || !this.chatId) {
       console.log('⚠️ Telegram not configured, skipping notification');
       return;
     }
+    
+    console.log('🔑 Telegram configured - Bot token and chat ID found');
 
     try {
       // Solo notificar errores críticos (severidad >= 8)
       if (aiAnalysis.severity_score < 8) {
+        console.log(`⚠️ Telegram: Severity ${aiAnalysis.severity_score}/10 - Not critical, skipping notification`);
         return;
       }
+      
+      console.log(`🚨 Telegram: Sending critical alert - Severity ${aiAnalysis.severity_score}/10`);
 
       const message = this.formatMessage(logData, aiAnalysis);
       
