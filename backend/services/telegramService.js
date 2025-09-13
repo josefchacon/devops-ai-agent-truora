@@ -37,6 +37,10 @@ class TelegramService {
       console.log('✅ Telegram notification sent successfully');
     } catch (error) {
       console.error('❌ Error sending Telegram notification:', error.message);
+      if (error.response) {
+        console.error('❌ Telegram API error response:', error.response.status, error.response.data);
+      }
+      console.error('❌ Full error:', error);
     }
   }
 
