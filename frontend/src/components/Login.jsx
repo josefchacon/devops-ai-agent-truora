@@ -13,7 +13,7 @@ const Login = ({ onLogin }) => {
     setError('')
 
     // Credenciales demo
-    if (credentials.username === 'admin' && credentials.password === 'truora2024') {
+    if (credentials.username === 'admin' && credentials.password === 'truora2025') {
       setTimeout(() => {
         onLogin(true)
         setLoading(false)
@@ -105,7 +105,7 @@ const Login = ({ onLogin }) => {
           <p className="text-sm text-gray-600 text-center">
             <strong>Demo Credentials:</strong><br />
             Usuario: <code className="bg-gray-200 px-1 rounded">admin</code><br />
-            Contraseña: <code className="bg-gray-200 px-1 rounded">truora2024</code>
+            Contraseña: <code className="bg-gray-200 px-1 rounded">truora2025</code>
           </p>
         </div>
       </div>
